@@ -126,7 +126,7 @@ const PurchaseDecisionJourney = () => {
           <div className="flex-grow flex flex-col justify-center p-8">
             {!model && (
               <div className="bg-white bg-opacity-50 p-6 rounded-lg shadow-inner mb-8">
-                <h2 className="text-2xl font-bold mb-4 text-gray-700">Choose Your Model</h2>
+                <h2 className="text-2xl font-bold mb-4 text-gray-700">Choose your model</h2>
                 <div className="flex flex-wrap justify-center gap-4">
                   {Object.entries(models).map(([key, value]) => (
                     <button
