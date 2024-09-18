@@ -120,85 +120,90 @@ const PurchaseDecisionJourney = () => {
   const currentQuestionData = model ? models[model].questions[currentQuestion] : null;
 
   return (
-    <div className="max-w-4xl w-full mx-auto p-8 bg-blue-100 rounded-lg shadow-2xl min-h-[800px] flex flex-col">
-      <div className="flex-grow flex flex-col justify-center">
-        {!model && (
-          <div className="bg-white bg-opacity-50 p-6 rounded-lg shadow-inner mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-gray-700">Choose Your Model</h2>
-            <div className="flex justify-center space-x-4">
-              {Object.entries(models).map(([key, value]) => (
-                <button
-                  key={key}
-                  onClick={() => setModel(key)}
-                  className="px-6 py-3 rounded-full bg-yellow-300 text-gray-700 font-bold text-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50"
-                >
-                  {value.title}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-        
-        {model && !isComplete && (
-          <div className="space-y-6">
-            <div className="relative">
-              <input
-                type="text"
-                name="productName"
-                value={productName}
-                onChange={(e) => setProductName(e.target.value)}
-                placeholder="Product Name"
-                className="w-full p-3 border-2 border-blue-300 rounded-lg bg-white bg-opacity-50 text-gray-700 placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition duration-300"
-              />
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+    <div className="w-full bg-blue-100 min-h-screen py-8">
+      <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white bg-opacity-50 rounded-lg shadow-2xl min-h-[800px] flex flex-col">
+          <div className="flex-grow flex flex-col justify-center p-8">
+            {!model && (
+              <div className="bg-white bg-opacity-50 p-6 rounded-lg shadow-inner mb-8">
+                <h2 className="text-2xl font-bold mb-4 text-gray-700">Choose Your Model</h2>
+                <div className="flex flex-wrap justify-center gap-4">
+                  {Object.entries(models).map(([key, value]) => (
+                    <button
+                      key={key}
+                      onClick={() => setModel(key)}
+                      className="px-6 py-3 rounded-full bg-yellow-300 text-gray-700 font-bold text-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50"
+                    >
+                      {value.title}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
             
-            <div className="bg-white bg-opacity-50 p-6 rounded-lg shadow-inner">
-              <h2 className="text-2xl font-bold mb-4 text-gray-700">{currentQuestionData.label}</h2>
-              <textarea
-                name={currentQuestionData.key}
-                value={answers[currentQuestionData.key] || ''}
-                onChange={handleInputChange}
-                placeholder="Type your answer here"
-                className="w-full p-4 border-2 border-blue-300 rounded-lg bg-white bg-opacity-50 text-gray-700 focus:outline-none focus:border-yellow-400 transition duration-300 h-32 resize-none"
-              />
-            </div>
+            {model && !isComplete && (
+              <div className="space-y-6">
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="productName"
+                    value={productName}
+                    onChange={(e) => setProductName(e.target.value)}
+                    placeholder="Product Name"
+                    className="w-full p-3 border-2 border-blue-300 rounded-lg bg-white bg-opacity-50 text-gray-700 placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition duration-300"
+                  />
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                  </div>
+                </div>
+                
+                <div className="bg-white bg-opacity-50 p-6 rounded-lg shadow-inner">
+                  <h2 className="text-2xl font-bold mb-4 text-gray-700">{currentQuestionData.label}</h2>
+                  <textarea
+                    name={currentQuestionData.key}
+                    value={answers[currentQuestionData.key] || ''}
+                    onChange={handleInputChange}
+                    placeholder="Type your answer here"
+                    className="w-full p-4 border-2 border-blue-300 rounded-lg bg-white bg-opacity-50 text-gray-700 focus:outline-none focus:border-yellow-400 transition duration-300 h-32 resize-none"
+                  />
+                </div>
 
-            <div className="flex justify-between">
-              <button 
-                onClick={handlePrevious}
-                disabled={currentQuestion === 0}
-                className="px-6 py-3 rounded-full bg-blue-300 text-gray-700 font-bold text-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Previous
-              </button>
-              <button 
-                onClick={handleNext}
-                disabled={!answers[currentQuestionData.key]?.trim()}
-                className="px-6 py-3 rounded-full bg-yellow-300 text-gray-700 font-bold text-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {currentQuestion === models[model].questions.length - 1 ? (
-                  <>
-                    Complete <CheckCircle className="inline-block ml-2" />
-                  </>
-                ) : (
-                  <>
-                    Next <ChevronRight className="inline-block ml-2" />
-                  </>
-                )}
-              </button>
-            </div>
+                <div className="flex justify-between">
+                  <button 
+                    onClick={handlePrevious}
+                    disabled={currentQuestion === 0}
+                    className="px-6 py-3 rounded-full bg-blue-300 text-gray-700 font-bold text-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Previous
+                  </button>
+                  <button 
+                    onClick={handleNext}
+                    disabled={!answers[currentQuestionData.key]?.trim()}
+                    className="px-6 py-3 rounded-full bg-yellow-300 text-gray-700 font-bold text-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {currentQuestion === models[model].questions.length - 1 ? (
+                      <>
+                        Complete <CheckCircle className="inline-block ml-2" />
+                      </>
+                    ) : (
+                      <>
+                        Next <ChevronRight className="inline-block ml-2" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {isComplete && (
+              <JourneyMap answers={answers} productName={productName} model={model} onReset={handleReset} />
+            )}
           </div>
-        )}
-
-        {isComplete && (
-          <JourneyMap answers={answers} productName={productName} model={model} onReset={handleReset} />
-        )}
+        </div>
       </div>
     </div>
   );
 };
 
 export default PurchaseDecisionJourney;
+
