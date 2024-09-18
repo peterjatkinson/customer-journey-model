@@ -45,7 +45,7 @@ const JourneyMap = ({ answers, productName, model, onReset }) => {
   return (
     <div className="space-y-4">
       <div ref={mapRef} className="w-full bg-blue-100 rounded-lg shadow-lg p-6">
-        <h3 className="text-2xl font-bold mb-6 text-gray-800 text-center">{productName} journey map</h3>
+        <h3 className="text-2xl font-bold mb-6 text-gray-800 text-center">{productName} purchase decision-making journey</h3>
         <div className="space-y-4">
           {stages.map((stage, index) => (
             <div 
@@ -149,7 +149,7 @@ const PurchaseDecisionJourney = () => {
                     name="productName"
                     value={productName}
                     onChange={(e) => setProductName(e.target.value)}
-                    placeholder="Product Name"
+                    placeholder="Product name"
                     className="w-full p-3 border-2 border-blue-300 rounded-lg bg-white bg-opacity-50 text-gray-700 placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition duration-300"
                   />
                   <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
