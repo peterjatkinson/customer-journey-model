@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/customer-journey-model/static/css/main.698c81ea.css",
+    "main.js": "/customer-journey-model/static/js/main.d5705838.js",
+    "index.html": "/customer-journey-model/index.html",
+    "main.698c81ea.css.map": "/customer-journey-model/static/css/main.698c81ea.css.map",
+    "main.d5705838.js.map": "/customer-journey-model/static/js/main.d5705838.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.698c81ea.css",
+    "static/js/main.d5705838.js"
+  ]
+}
