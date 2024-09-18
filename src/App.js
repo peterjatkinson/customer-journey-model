@@ -4,7 +4,7 @@ import html2canvas from 'html2canvas';
 
 const models = {
   aida: {
-    title: "AIDA Model",
+    title: "AIDA model",
     questions: [
       { key: "attention", label: "Attention: What first caught your attention about the product?" },
       { key: "interest", label: "Interest: What made you interested in learning more about it?" },
@@ -13,13 +13,13 @@ const models = {
     ],
   },
   cdm: {
-    title: "Consumer Decision-Making Process",
+    title: "Consumer decision-making process",
     questions: [
-      { key: "problemRecognition", label: "Problem Recognition: What need or problem were you addressing?" },
-      { key: "informationSearch", label: "Information Search: How did you search for options?" },
-      { key: "informationEvaluation", label: "Information Evaluation: How did you compare alternatives?" },
+      { key: "problemRecognition", label: "Problem recognition: What need or problem were you addressing?" },
+      { key: "informationSearch", label: "Information search: How did you search for options?" },
+      { key: "informationEvaluation", label: "Information evaluation: How did you compare alternatives?" },
       { key: "decision", label: "Decision: What made you choose that product?" },
-      { key: "postPurchaseEvaluation", label: "Post-purchase Evaluation: How do you feel about your purchase now?" },
+      { key: "postPurchaseEvaluation", label: "Post-purchase evaluation: How do you feel about your purchase now?" },
     ],
   },
 };
@@ -123,7 +123,7 @@ const PurchaseDecisionJourney = () => {
     <div className="max-w-4xl w-full mx-auto p-8 bg-blue-100 rounded-lg shadow-2xl">
       {!model && (
         <div className="bg-white bg-opacity-50 p-6 rounded-lg shadow-inner mb-8">
-          <h2 className="text-2xl font-bold mb-4 text-gray-700">Choose Your Model</h2>
+          <h2 className="text-2xl font-bold mb-4 text-gray-700">Choose your model</h2>
           <div className="flex justify-center space-x-4">
             {Object.entries(models).map(([key, value]) => (
               <button
@@ -146,7 +146,7 @@ const PurchaseDecisionJourney = () => {
               name="productName"
               value={productName}
               onChange={(e) => setProductName(e.target.value)}
-              placeholder="Product Name"
+              placeholder="Product name"
               className="w-full p-3 border-2 border-blue-300 rounded-lg bg-white bg-opacity-50 text-gray-700 placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition duration-300"
             />
             <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
